@@ -1,0 +1,83 @@
+#root {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 2rem;
+  text-align: center;
+  font-family: Inter, Avenir, Helvetica, Arial, sans-serif;
+  color: black;
+  background-color: white;
+}
+
+
+ body {
+  margin: 0;
+  display: flex;
+  place-items: center;
+  min-width: 320px;
+  min-height: 100vh;
+  background-image: url('./sports.png');
+  background-size: cover;
+}
+
+.card{
+  background: lightblue;
+  width: 500px;
+  height: 400px;
+  color: black;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+}
+
+.buttons{
+  display: flex;
+  justify-content: space-between;
+}
+
+.buttons button{
+  margin-top: 20px;
+  border-radius: 10px;
+  background: black;
+  color: white;
+  flex-direction: row-reverse;
+  border: 1px solid black;
+  padding: 10px;
+  cursor: pointer;
+  
+}
+
+.buttons button:hover{
+  background: lightblue;
+  color:black;
+}
+
+.card-container{
+  perspective: 1000px;
+  cursor: pointer;
+}
+
+.card{
+  transform-style: preserve-3d;
+  transition: transform 0.1s ease-in-out;
+  
+}
+
+.card-container.flipped .card{
+  transform: rotateY(180deg);
+}
+
+.card-front{
+  margin-top: 100px;
+}
+
+.card-front, .card-back{
+  backface-visibility: hidden;
+}
+
+.card-back{
+  display: flex;
+  justify-content: center;
+  margin-bottom: 160px;
+  transform: rotateY(180deg);
+}
+
