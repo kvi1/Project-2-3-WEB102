@@ -1,62 +1,104 @@
-import React, {useState} from 'react'
-import './App.css'
-import { questionsList } from './data.js'
-import Card from './components/Card'
+import React, { useState } from 'react';
+import './App.css';
+import { questionsList } from './data.js';
+import Card from './components/Card';
 
 const App = () => {
   // index is at 0
   const [currentQuestion, setCurrentQuestion] = useState(0);
   const [flipped, setFlipped] = useState(false);
+  const [guess, setGuess] = useState("");
+  const [correct, setCorrect] = useState(null); 
+  const [streak, setStreak] = useState(0);
+
+
   let question = questionsList[currentQuestion];
 
-  function handlePreviousClick(){
-    if(currentQuestion == 0){
-      setCurrentQuestion(9);
-      setFlipped(false);
+  function handlePreviousClick() {
+    if(currentQuestion === 0){
+      setCurrentQuestion(9)
     }
     else{
-      setCurrentQuestion(currentQuestion-1);
-      setFlipped(false);
+      setCurrentQuestion(currentQuestion - 1)
     }
+    setFlipped(false);
+    setGuess("");
+    setCorrect(null); 
   }
 
   function handleNextClick() {
     if(currentQuestion == 9){
       setCurrentQuestion(0);
-      setFlipped(false);
     }
     else{
       setCurrentQuestion(currentQuestion + 1);
-      setFlipped(false);
     }
-    
+    setFlipped(false);
+    setGuess("");
+    setCorrect(null);
   }
 
-  function randomQuestion(){
-    let random =Math.floor(Math.random() * 10);
+  function randomQuestion() {
+    let random = Math.floor(Math.random() * 10);
     setCurrentQuestion(random);
     setFlipped(false);
+    setGuess("");
+    setCorrect(null);
   }
 
+  function handleGuessSubmit() {
+    let c = null;
+    if (guess.trim().toLowerCase() === question.answer.toLowerCase()) {
+      setCorrect(true);
+      c = true;
+    } else {
+      setCorrect(false);
+      c = false;
+    }
 
-  return(
-    <div className = "home">
+    if(c == true){
+      setStreak(streak + 1);
+    }
+    else{
+      setStreak(0);
+    }
+  }
+
+ 
+
+  return (
+    <div className="home">
       <h1>The Sports Quiz</h1>
       <h2>How well do you know common sports facts?</h2>
-      <h3>Question {currentQuestion + 1}  / 10 </h3>
-      <Card 
-      question = {questionsList[currentQuestion].question} 
-      answer = {questionsList[currentQuestion].answer}
-      flipped = {flipped}
-      setFlipped = {setFlipped} /> 
-      <div className = "buttons">
-      <button onClick = {handlePreviousClick}>Previous</button>
-      <button onClick = {randomQuestion}>Random</button>
-      <button onClick = {handleNextClick}>Next</button>
+      <h3>Question {currentQuestion + 1} / 10</h3>
+      <h4>Current Streak: {streak}</h4>
+
+      <Card
+        question={questionsList[currentQuestion].question}
+        answer={questionsList[currentQuestion].answer}
+        flipped={flipped}
+        setFlipped={setFlipped}
+      />
+
+      <div className = "guessing">
+      <p>Your Guess</p>
+      <input
+        type="text"
+        placeholder="Answer"
+        value={guess}
+        onChange={(e) => setGuess(e.target.value)}
+        className={`guess ${correct === true ? 'correct' : correct === false ? 'incorrect' : ''}`}
+      />
+      <button onClick={handleGuessSubmit}>Submit</button>
       </div>
 
+      <div className="buttons">
+        <button onClick={handlePreviousClick}>Previous</button>
+        <button onClick={randomQuestion}>Shuffle Cards</button>
+        <button onClick={handleNextClick}>Next</button>
+      </div>
     </div>
-  )
-}
+  );
+};
 
 export default App;
