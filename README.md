@@ -17,12 +17,6 @@ The following **required** functionality is completed:
 - [x] **Clicking the next button displays a random new card**
 
 
-## Video Walkthrough
-
-Here's a walkthrough of implemented required features:
-
-<img src='http://i.imgur.com/link/to/your/gif/file.gif' title='Video Walkthrough' width='' alt='Video Walkthrough' />
-
 
 # Web Development Project 3 - Sports Flashcards Guessing Game
 
@@ -47,4 +41,6 @@ The following **optional** features are implemented:
 - [ ] A user's answer may be counted as correct even when it is slightly different from the target answer
 - [x] A counter displays the user's current and longest streak of correct responses
 - [ ] A user can mark a card that they have mastered and have it removed from the pool of answers as well as added to a list of mastered cards
+<img width="1493" alt="Screenshot 2025-03-14 at 6 05 32 PM" src="https://github.com/user-attachments/assets/805addd3-c311-4322-a2e1-e17cc146cac0" />
+
 
