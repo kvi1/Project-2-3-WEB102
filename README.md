@@ -21,4 +21,30 @@ The following **required** functionality is completed:
 
 Here's a walkthrough of implemented required features:
 
-![ScreenRecording2025-03-07at5 55 17PM-ezgif com-video-to-gif-converter](https://github.com/user-attachments/assets/d73d5b05-d042-4f63-8be6-9e34f5911ece)
+<img src='http://i.imgur.com/link/to/your/gif/file.gif' title='Video Walkthrough' width='' alt='Video Walkthrough' />
+
+
+# Web Development Project 3 - Sports Flashcards Guessing Game
+
+Submitted by: Kartik Vanjani
+
+This web app: This is the sports flashcards from the first part but allows a user to guess the answer, and if it is wrong the box is highlighted red, green for correct, and maintains a streak for the user.
+
+Time spent: 1.5 hours spent in total
+
+## Required Features
+
+The following **required** functionality is completed:
+
+- [x] **The user can enter their guess in a box before seeing the flipside of the card**
+- [x] **Clicking on a submit button shows visual feedback about whether the answer was correct or incorrect**
+- [x] **A back button is displayed on the card and can be used to return to the previous card in a set sequence**
+- [x] **A next button is displayed on the card and can be used to navigate to the next card in a set sequence**
+
+The following **optional** features are implemented:
+
+- [x] A shuffle button is used to randomize the order of the cards
+- [ ] A user's answer may be counted as correct even when it is slightly different from the target answer
+- [x] A counter displays the user's current and longest streak of correct responses
+- [ ] A user can mark a card that they have mastered and have it removed from the pool of answers as well as added to a list of mastered cards
+
