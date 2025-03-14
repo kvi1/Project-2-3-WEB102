@@ -34,6 +34,17 @@
   justify-content: space-between;
 }
 
+button{
+  background-color: black;
+  color: white;
+  border-radius: 10px;
+  cursor: pointer;
+}
+button:hover{
+  background-color: lightblue;
+  color:black;
+}
+
 .buttons button{
   margin-top: 20px;
   border-radius: 10px;
@@ -81,3 +92,32 @@
   transform: rotateY(180deg);
 }
 
+.guess.correct{
+  border-color: green;
+  border-width: 5px;
+}
+
+.guess.incorrect{
+  border-color: red;
+  border-width: 5px;
+}
+
+.guessing{
+  display:flex;
+  align-items: center;
+  justify-content: center;
+  
+}
+
+.guessing p{
+  color:blue;
+  font-weight: bold;
+  font-family: 'Courier New', Courier, monospace;
+  font-size: large;
+}
+
+.guessing input{
+  background-color: black;
+  color: white;
+  padding: 10px;
+}
