@@ -10,6 +10,8 @@ const App = () => {
   const [guess, setGuess] = useState("");
   const [correct, setCorrect] = useState(null); 
   const [streak, setStreak] = useState(0);
+  const [last, setLast] = useState(null);
+  const [last2, setLast2] = useState(null);
 
 
   let question = questionsList[currentQuestion];
@@ -17,9 +19,11 @@ const App = () => {
   function handlePreviousClick() {
     if(currentQuestion === 0){
       setCurrentQuestion(9)
+      setLast(true);
     }
     else{
       setCurrentQuestion(currentQuestion - 1)
+      setLast(null);
     }
     setFlipped(false);
     setGuess("");
@@ -29,9 +33,11 @@ const App = () => {
   function handleNextClick() {
     if(currentQuestion == 9){
       setCurrentQuestion(0);
+      setLast2(true);
     }
     else{
       setCurrentQuestion(currentQuestion + 1);
+      setLast2(null);
     }
     setFlipped(false);
     setGuess("");
@@ -93,9 +99,18 @@ const App = () => {
       </div>
 
       <div className="buttons">
-        <button onClick={handlePreviousClick}>Previous</button>
+        <button onClick={handlePreviousClick} 
+
+        disabled = {currentQuestion === 0}
+        style = {{backgroundColor: currentQuestion === 0 ? "gray" : "black", color: "white"}}
+        >Previous</button>
         <button onClick={randomQuestion}>Shuffle Cards</button>
-        <button onClick={handleNextClick}>Next</button>
+        <button onClick={handleNextClick}
+        disabled = {currentQuestion === 9}
+        style = {{backgroundColor: currentQuestion === 9 ? "gray" : "black"}}
+        
+
+        >Next</button>
       </div>
     </div>
   );
