@@ -121,3 +121,7 @@ button:hover{
   color: white;
   padding: 10px;
 }
+
+.buttons .last.lasts{
+  background-color: gray;
+}
